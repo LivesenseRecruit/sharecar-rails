@@ -1,0 +1,18 @@
+<div class="row">
+<% @cars.each do |car| %>
+  <div class="col s12">
+    <div class="Card">
+      <div class="Card--Content">
+        <p class="Card--Content--Title">
+          <%= car.name %>
+        </p>
+      </div>
+      <div class="Card--Action">
+        <%= link_to admin_car_drives_path(car.id), class: 'Card--Action--FAB red' do %>
+          <i class='Card--Action--FAB--Icon'>create</i>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
+</div>

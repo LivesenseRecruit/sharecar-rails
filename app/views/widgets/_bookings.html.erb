@@ -1,0 +1,24 @@
+<% if object.present? %>
+  <% object.each do |booking| %>
+    <div class='card booking'>
+      <div class='card-content'>
+        <p>
+          <span class='card-title'><%= booking.user.name %></span>
+          <%= simple_datetime booking.start_at %> 〜 <%= simple_datetime booking.end_at %>
+        </p>
+      </div>
+      <div class='card-action right-align'>
+        <% if booking.user.id == current_user.id %>
+          <%= link_to car_booking_path(id: booking),
+                      { method: :delete,
+                        data: { confirm: "#{booking.start_at.to_date}の予約を取り消しますか？" },
+                        class: 'Card--Action--FAB red delete-booking' } do %>
+            <i class="Card--Action--FAB--Icon booking-delete">delete</i>
+          <% end %>
+        <% end %>
+        <%= render 'widgets/tel', object: booking.user %>
+        <%= render 'widgets/email', object: booking.user %>
+      </div>
+    </div>
+  <% end %>
+<% end %>

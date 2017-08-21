@@ -6,6 +6,7 @@
 
 # Ignore bundler config.
 /.bundle
+/vendor/bin
 
 # Ignore the default SQLite database.
 /db/*.sqlite3
@@ -19,3 +20,11 @@
 
 # Ignore Byebug command history file.
 .byebug_history
+
+# Ignore assets
+/public/assets/
+
+# Other
+/node_modules
+
+*.ipynb

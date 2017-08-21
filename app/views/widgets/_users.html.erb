@@ -1,0 +1,16 @@
+<% object.each do |user| %>
+<div class='card user'>
+  <div class="card-content">
+    <span class='card-title'><%= user.name || 'Not registered' %></span>
+    <%= user.email %> <br />
+    <%= user.phone_number %>
+  </div>
+  <div class="card-action right-align">
+    <% if user.activation_state == 'pending' %>
+      <%= link_to "Reinvite", resend_invitation_user_path(user), method: :post %>
+    <% end %>
+    <%= render 'widgets/tel', object: user %>
+    <%= render 'widgets/email', object: user %>
+  </div>
+</div>
+<% end %>
